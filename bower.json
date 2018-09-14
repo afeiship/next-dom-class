@@ -1,6 +1,7 @@
 {
   "name": "next-dom-class",
-  "description": "Standalone dom class for next.",
+  "version": "0.0.1",
+  "description": "Standalone dom class for next",
   "main": "dist/next-dom-class.js",
   "authors": [
     "afei"
@@ -20,7 +21,7 @@
     "test",
     "tests",
     "src",
-    "gulp",
+    "build",
     "gulpfile.js"
   ]
 }

@@ -1,5 +1,5 @@
 # next-dom-class
-> Standalone dom class for next.
+> Standalone dom class for next
 
 
 ## resources:

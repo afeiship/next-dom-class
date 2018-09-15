@@ -11,20 +11,10 @@
       init: function (inElement) {
         this.element = inElement;
       },
-      add: function () {
-        return this.__class__('add', arguments);
-      },
-      contains: function () {
-        return this.__class__('contains', arguments);
-      },
-      remove: function () {
-        return this.__class__('remove', arguments);
-      },
-      replace: function () {
-        return this.__class__('replace', arguments);
-      },
-      toggle: function (inClassName) {
-        return this.__class__('toggle', arguments);
+      'add,remove,replace,toggle,contains': function (inName) {
+        return function () {
+          return this.__class__(inName, arguments);
+        }
       },
       __class__: function (inAction, inArgs) {
         var cssClass = inArgs;

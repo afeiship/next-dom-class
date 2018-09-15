@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Test</title>
+  <script src="../node_modules/next-js-core2/dist/next-js-core2.js"></script>
+  <script src="../src/next-dom-class.js"></script>
+  <style>
+    #test {
+      padding: 20px;
+      border: 1px solid seagreen;
+    }
+
+    button{
+      border:none;
+      background: #007aff;
+      padding:14px;
+      width: 100%;
+      color: #fff;
+      margin-bottom: 20px;
+      outline: none;
+      user-select: none;
+    }
+
+    button:active{
+      opacity: 0.9;
+    }
+
+    .c-border {
+      border-width: 4px!important;
+    }
+
+    .c-red {
+      color: #f00;
+    }
+
+    .c-green {
+      color: #0f0;
+    }
+
+    .c-blue {
+      color: #00f;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="test">
+    I am the test div;
+  </div>
+  <button id="add">Add Class</button>
+  <button id="remove">Remove Class</button>
+  <button id="toggle">Toggle Class</button>
+  <button id="contains">Contains Class</button>
+
+  <script>
+    var btnAdd = document.getElementById('add');
+    var removeAdd = document.getElementById('remove');
+    var toggleBtn = document.getElementById('toggle');
+    var containsBtn = document.getElementById('contains');
+    var domInstnace = new nx.DomClass(document.getElementById('test'))
+
+    btnAdd.onclick = function () {
+      domInstnace.add('c-border c-red c-green');
+    };
+
+    removeAdd.onclick = function () {
+      domInstnace.remove('c-green');
+    };
+
+    toggleBtn.onclick = function () {
+      domInstnace.toggle('c-green');
+    };
+
+    containsBtn.onclick = function(){
+      console.log(
+        domInstnace.contains('c-green')
+      )
+    };
+
+  </script>
+</body>
+
+</html>

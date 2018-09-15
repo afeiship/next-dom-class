@@ -7,30 +7,32 @@
   // https://github.com/madrobby/zepto/blob/master/src/zepto.js
 
   var NxDomClass = nx.declare('nx.DomClass', {
-    statics: {
-      add: function (inElement, inClassName) {
-        var cssClass = inClassName.split(BLANK);
-        cssClass.forEach(function (cls) {
-          inElement.classList.add(cls);
-        });
+    methods: {
+      init: function (inElement) {
+        this.element = inElement;
       },
-      contains: function (inElement, inClassName) {
-        return inElement.classList.contains(inClassName);
+      add: function () {
+        return this.__class__('add', arguments);
       },
-      remove: function (inElement, inClassName) {
-        var cssClass = inClassName.split(BLANK);
-        cssClass.forEach(function (cls) {
-          inElement.classList.remove(cls);
-        });
+      contains: function () {
+        return this.__class__('contains', arguments);
       },
-      replace: function (inElement, inOldClassName, inClassName) {
-        var cssClass = inClassName.split(BLANK);
-        cssClass.forEach(function (cls) {
-          inElement.classList.replace(inOldClassName, cls);
-        });
+      remove: function () {
+        return this.__class__('remove', arguments);
       },
-      toggle: function (inElement, inClassName) {
-        inElement.classList.toggle(inClassName);
+      replace: function () {
+        return this.__class__('replace', arguments);
+      },
+      toggle: function (inClassName) {
+        return this.__class__('toggle', arguments);
+      },
+      __class__: function (inAction, inArgs) {
+        var cssClass = inArgs;
+        var context = this.element.classList;
+        if (inArgs.length === 1) {
+          cssClass = inArgs[0].split(BLANK);
+        }
+        return context[inAction].apply(context, cssClass);
       }
     }
   });

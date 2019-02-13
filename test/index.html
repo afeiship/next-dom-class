@@ -63,23 +63,23 @@
     var toggleBtn = document.getElementById('toggle');
     var containsBtn = document.getElementById('contains');
     var el = document.getElementById('test');
-    var domInstnace = nx.DomClass
+    var DomClass = nx.DomClass
 
     btnAdd.onclick = function () {
-      domInstnace.add(el,'c-border c-red c-green');
+      DomClass.add(el,'c-border c-red c-green');
     };
 
     removeAdd.onclick = function () {
-      domInstnace.remove(el,'c-green');
+      DomClass.remove(el,'c-green');
     };
 
     toggleBtn.onclick = function () {
-      domInstnace.toggle(el,'c-green');
+      DomClass.toggle(el,'c-green');
     };
 
     containsBtn.onclick = function(){
       console.log(
-        domInstnace.contains(el,'c-green')
+        DomClass.contains(el,'c-green')
       )
     };
 

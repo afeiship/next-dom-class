@@ -62,23 +62,24 @@
     var removeAdd = document.getElementById('remove');
     var toggleBtn = document.getElementById('toggle');
     var containsBtn = document.getElementById('contains');
-    var domInstnace = new nx.DomClass(document.getElementById('test'))
+    var el = document.getElementById('test');
+    var domInstnace = nx.DomClass
 
     btnAdd.onclick = function () {
-      domInstnace.add('c-border c-red c-green');
+      domInstnace.add(el,'c-border c-red c-green');
     };
 
     removeAdd.onclick = function () {
-      domInstnace.remove('c-green');
+      domInstnace.remove(el,'c-green');
     };
 
     toggleBtn.onclick = function () {
-      domInstnace.toggle('c-green');
+      domInstnace.toggle(el,'c-green');
     };
 
     containsBtn.onclick = function(){
       console.log(
-        domInstnace.contains('c-green')
+        domInstnace.contains(el,'c-green')
       )
     };
 

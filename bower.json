@@ -1,7 +1,7 @@
 {
   "name": "next-dom-class",
-  "version": "0.0.1",
-  "description": "Standalone dom class for next",
+  "version": "1.0.0",
+  "description": "Standalone dom class for next.",
   "main": "dist/next-dom-class.js",
   "authors": [
     "afei"

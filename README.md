@@ -39,4 +39,4 @@ NxDomClass.contains(inElement,'cls1');
 ```
 
 ## resources:
-- https://github.com/afeiship
+- https://github.com/necolas/dom-classlist

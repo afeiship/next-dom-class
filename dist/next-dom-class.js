@@ -1,33 +1,31 @@
-(function () {
-
+(function() {
   var global = global || this || window || Function('return this')();
   var nx = global.nx || require('next-js-core2');
-  var BLANK = /\s+/;
+  var classCache = {};
+
+  // @thanks to zeptojs:
+  function classRE(inName) {
+    return inName in classCache
+      ? classCache[inName]
+      : (classCache[inName] = new RegExp('(^|\\s)' + inName + '(\\s|$)'));
+  }
 
   // https://github.com/madrobby/zepto/blob/master/src/zepto.js
-
   var NxDomClass = nx.declare('nx.DomClass', {
     statics: {
-      'add,remove,replace,toggle,contains': function (inName) {
-        return function () {
-          return this.__class__(inName, arguments);
-        }
-      },
-      __class__: function (inAction, inArgs) {
-        var cssClass = inArgs;
-        var context = inArgs[0].classList;
-        var args = nx.slice(inArgs).slice(1)
-        if (args.length === 1) {
-          cssClass = args[0].split(BLANK);
-        }
-        return context[inAction].apply(context, cssClass);
+      add: function() {},
+      remove: function() {},
+      replace: function() {},
+      toggle: function() {},
+      contains: function(inElement, inClassName) {
+        if (!inClassName) return false;
+        var className = inElement.className;
+        return classRE(inClassName).test(className);
       }
     }
   });
 
-
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = NxDomClass;
   }
-
-}());
+})();
